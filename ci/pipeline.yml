@@ -1,0 +1,6 @@
+resources:
+  - name: project-src
+    type: git
+    source:
+      uri: https://github.com/jared-carroll/spring-boot-hello-world.git
+      branch: master
