@@ -1,6 +1,12 @@
 resources:
-  - name: project-src
-    type: git
-    source:
-      uri: https://github.com/jared-carroll/spring-boot-hello-world.git
-      branch: master
+- name: project-src
+  type: git
+  source:
+    uri: https://github.com/jared-carroll/spring-boot-hello-world.git
+
+jobs:
+- name: hi-world
+  plan:
+  - get: project-src
+  - task: say-hi
+    file: project-src/hi.yml
