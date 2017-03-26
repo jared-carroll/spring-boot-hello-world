@@ -6,6 +6,6 @@ image_resource:
     repository: ubuntu
 
 run:
-  path: echo
+  path: sleep
   args:
-  - hi
+  - 5
