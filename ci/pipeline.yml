@@ -17,9 +17,9 @@ jobs:
           source:
             repository: ubuntu
         run:
-          path: echo
+          path: sleep
           args:
-          - hi
+          - 10
 - name: step-2
   plan:
     - get: src
@@ -33,6 +33,6 @@ jobs:
           source:
             repository: ubuntu
         run:
-          path: echo
+          path: sleep
           args:
-          - world
+          - 10
