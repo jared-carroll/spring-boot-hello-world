@@ -3,6 +3,12 @@ resources:
   type: git
   source:
     uri: https://github.com/jared-carroll/spring-boot-hello-world.git
+- name: gh-release
+  type: github-release
+  source:
+    user: jared-carroll
+    repository: spring-boot-hello-world
+    access_token: 53cb63d5a6de93b28721210651fb2ce4f8d457c0
 
 jobs:
 - name: assemble
@@ -11,3 +17,7 @@ jobs:
     trigger: true
   - task: assemble
     file: src/ci/assemble.yml
+  - put: gh-release
+    params:
+      name: src/RELEASE
+      tag: src/TAG
