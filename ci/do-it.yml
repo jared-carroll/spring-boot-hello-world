@@ -1,0 +1,10 @@
+config:
+  platform: linux
+  image_resource:
+    type: docker-image
+    source:
+      repository: ubuntu
+  outputs:
+  - name: something
+  run:
+    path: do-it.sh

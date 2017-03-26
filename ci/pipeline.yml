@@ -1,20 +1,19 @@
 resources:
-- name: every-10-seconds
-  type: time
-  source:
-    interval: 10s
 - name: project-src
   type: git
   source:
     uri: https://github.com/jared-carroll/spring-boot-hello-world.git
 
 jobs:
-- name: something-every-10-seconds
+- name: some-job
   plan:
-    - get: every-10-seconds
-      trigger: true
     - get: project-src
-    - task: something
+      trigger: true
+    - task: do-it
+      file: project-src/ci/do-it.yml
+    - task: another-task
+      inputs:
+        name: something
       config:
         platform: linux
         image_resource:
@@ -22,6 +21,6 @@ jobs:
           source:
             repository: ubuntu
         run:
-          path: echo
+          path: ls
           args:
-          - hi
+          - something
