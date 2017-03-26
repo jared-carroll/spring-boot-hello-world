@@ -21,3 +21,4 @@ jobs:
     params:
       name: src/RELEASE
       tag: src/TAG
+      tag_prefix: v

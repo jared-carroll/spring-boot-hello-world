@@ -13,4 +13,4 @@ run:
   dir: src
   path: ./gradlew
   args:
-  - assemble
+  - help
