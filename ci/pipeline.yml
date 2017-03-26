@@ -13,7 +13,7 @@ jobs:
       file: project-src/ci/do-it.yml
     - task: another-task
       inputs:
-        name: something
+      - name: something
       config:
         platform: linux
         image_resource:
@@ -23,4 +23,4 @@ jobs:
         run:
           path: ls
           args:
-          - something
+          - -laR
