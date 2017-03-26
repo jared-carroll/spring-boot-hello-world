@@ -9,4 +9,4 @@ jobs:
   plan:
   - get: project-src
   - task: say-hi
-    file: project-src/hi.yml
+    file: project-src/ci/hi.yml
