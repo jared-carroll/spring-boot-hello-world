@@ -7,6 +7,6 @@ image_resource:
     tag: 8-jdk
 
 run:
-  path: java
+  path: ./gradlew
   args:
-  - -version
+  - assemble
