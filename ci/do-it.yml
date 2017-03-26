@@ -5,9 +5,11 @@ image_resource:
   source:
     repository: ubuntu
 
+inputs:
+- name: project-src
+
 outputs:
 - name: something
 
 run:
-  path: ls
-  args: [-laR]
+  path: project-src/ci/do-it.sh
