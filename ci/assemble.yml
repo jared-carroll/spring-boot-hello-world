@@ -10,6 +10,7 @@ inputs:
 - name: src
 
 run:
-  path: ./src/gradlew
+  dir: src
+  path: ./gradlew
   args:
   - assemble
