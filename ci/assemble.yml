@@ -6,7 +6,10 @@ image_resource:
     repository: java
     tag: 8-jdk
 
+inputs:
+- name: src
+
 run:
-  path: ./gradlew
+  path: ./src/gradlew
   args:
   - assemble
