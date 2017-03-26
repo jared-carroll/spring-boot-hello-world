@@ -9,4 +9,5 @@ outputs:
 - name: something
 
 run:
-  path: project-src/ci/do-it.sh
+  path: ls
+  args: [-laR]
