@@ -8,5 +8,6 @@ jobs:
 - name: hi-world
   plan:
   - get: project-src
+    trigger: true
   - task: say-hi
     file: project-src/ci/hi.yml
