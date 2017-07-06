@@ -1,24 +1,32 @@
 resources:
-- name: src
-  type: git
-  source:
-    uri: https://github.com/jared-carroll/spring-boot-hello-world.git
-- name: gh-release
-  type: github-release
-  source:
-    user: jared-carroll
-    repository: spring-boot-hello-world
-    access_token: 53cb63d5a6de93b28721210651fb2ce4f8d457c0
+  - name: source-code
+    type: git
+    source:
+      uri: https://github.com/jared-carroll/spring-boot-hello-world.git
+
+  - name: source-code-docker-image
+    type: docker-image
+    source:
+      repository: jaredcarroll/hi
 
 jobs:
-- name: assemble
-  plan:
-  - get: src
-    trigger: true
-  - task: assemble
-    file: src/ci/assemble.yml
-  - put: gh-release
-    params:
-      name: src/RELEASE
-      tag: src/TAG
-      tag_prefix: v
+  - name: build-image
+    plan:
+      - get: source-code
+        trigger: true
+#      - task: step-1
+#        config:
+#          platform: linux
+#          image_resource:
+#            type: docker-image
+#            source:
+#              repository: busybox
+#          inputs:
+#            - name: source-code
+#          run:
+#            path: echo
+#            args:
+#              - hi
+      - put: source-code-docker-image
+        params:
+          build: source-code/ci
